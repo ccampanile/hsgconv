@@ -1,0 +1,18 @@
+#readme
+include *.md
+
+#license file
+include LICENSE.TXT 
+
+#############################
+#highways standard data
+#Refer to IAN99/07 by Mr Andrew Jukes and made public by Standards For Highways
+#Source: http://www.standardsforhighways.co.uk/ha/standards/ians/pdfs/ian99.pdf
+
+#include csv format
+include hs_gridconv\docs\LocalGrid_DataParams.csv
+include hs_gridconv\docs\LocalGrid_DataBands.csv
+
+#include json format
+include hs_gridconv\docs\he_bands.json
+include hs_gridconv\docs\he_grids.json
