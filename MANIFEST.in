@@ -10,9 +10,9 @@ include LICENSE.TXT
 #Source: http://www.standardsforhighways.co.uk/ha/standards/ians/pdfs/ian99.pdf
 
 #include csv format
-include hs_gridconv\docs\LocalGrid_DataParams.csv
-include hs_gridconv\docs\LocalGrid_DataBands.csv
+include hsgconv\docs\LocalGrid_DataParams.csv
+include hsgconv\docs\LocalGrid_DataBands.csv
 
 #include json format
-include hs_gridconv\docs\he_bands.json
-include hs_gridconv\docs\he_grids.json
+include hsgconv\docs\he_bands.json
+include hsgconv\docs\he_grids.json
