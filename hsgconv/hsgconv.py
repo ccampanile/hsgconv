@@ -1,13 +1,13 @@
 """
-hs_gridconv.py
+hsgconv.py
 Provides conversion support from/to England's highways standards local grids to OSGB36 EPSG:27700
 author: ccampanile<at>brydenwood.co.uk
-date: 2018/04/30
-version: 1.0.0
+date: 2018/05/02
+version: 1.0.4
 Compatible with Python versions 2.7-3.x
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.4"
 
 
 
@@ -29,6 +29,10 @@ else:
 
 
 #Begin Library
+
+def Dumbtest():
+	return 'Dumbtest has been called'
+
 
 def GridParams(gridID, mean_z):
     """
