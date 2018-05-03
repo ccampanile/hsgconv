@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup,find_packages
 
 setup(name='hsgconv',
 	packages=find_packages(exclude=('docs', 'tests', 'env', 'index.py')),
