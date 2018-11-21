@@ -10,4 +10,4 @@ ___
 Tested on Python 2.7 and IronPython 2.7 - should work on 3.x too.
 
 [1]: http://www.standardsforhighways.co.uk/ha/standards/ians/pdfs/ian99.pdf "Standards for Highways"
-[hestandardgrids]: https://github.com/adam-p/markdown-here/raw/master/examples/localgrids.PNG
+[hestandardgrids]: https://github.com/ccampanile/hsgconv/raw/master/examples/localgrids.PNG
