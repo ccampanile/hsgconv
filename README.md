@@ -3,6 +3,7 @@ Coordinate conversion methods between [England's Highways Standards and British 
 
 ![][hestandardgrids]
 
+## Install
 The module can be installed through pip by running ```pip install hsgconv```. The example shows the recommended way to proceed and shows  cumulative errors.
 
 ___
