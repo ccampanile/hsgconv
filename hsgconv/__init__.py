@@ -1,4 +1,4 @@
 __title__ = 'hsgconv'
-__version__ = '1.0.4'
+__version__ = '1.0.9'
 
-from .hsgconv import GridParams,CreateParamList,ConvertToOSBG,ConvertToLocalGrid,Dumbtest
+from .hsgconv import GridParams,CreateParamList,ConvertToOSBG,ConvertToLocalGrid

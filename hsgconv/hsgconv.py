@@ -30,9 +30,6 @@ else:
 
 #Begin Library
 
-def Dumbtest():
-	return 'Dumbtest has been called'
-
 
 def GridParams(gridID, mean_z):
     """
