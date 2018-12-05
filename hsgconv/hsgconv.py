@@ -3,18 +3,16 @@ hsgconv.py
 Provides conversion support from/to England's highways standards local grids to OSGB36 EPSG:27700
 author: ccampanile<at>brydenwood.co.uk
 date: 2018/05/02
-version: 1.0.4
+version: 1.0.10
 Compatible with Python versions 2.7-3.x
 """
 
-__version__ = "1.0.4"
-
+__version__ = "1.0.9"
 
 
 #import statements
 import sys
 import os
-
 
 
 #python 3 compatibility
@@ -27,9 +25,7 @@ else:
     from itertools import izip
 
 
-
-#Begin Library
-
+#Begin Module
 
 def GridParams(gridID, mean_z):
     """

@@ -2,7 +2,7 @@ from setuptools import setup,find_packages
 
 setup(name='hsgconv',
 	packages=find_packages(exclude=('docs', 'tests', 'env', 'index.py')),
-    version='1.0.9',
+    version='1.0.10',
     description='Pure Python converter for Highways England Local Grid to British National Grid - OSBG36, EPSG:27700',
     long_description=open('README.md').read(),
     author='Claudio Campanile',
