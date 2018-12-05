@@ -93,14 +93,14 @@ def ConvertToLocalGrid(myGridParam, easting, northing):
 def __GetBandsData():
     #localpath
     this_dir, this_filename = os.path.split(__file__)
-    DATA_PATH = os.path.join(this_dir, "docs", "LocalGrid_DataBands.csv")
+    DATA_PATH = os.path.join(this_dir, "data", "LocalGrid_DataBands.csv")
     return open(DATA_PATH)
 
 
 def __GetGridData():
     #localpath
     this_dir, this_filename = os.path.split(__file__)
-    DATA_PATH = os.path.join(this_dir, "docs", "LocalGrid_DataParams.csv")
+    DATA_PATH = os.path.join(this_dir, "data", "LocalGrid_DataParams.csv")
     return open(DATA_PATH)
 
 
