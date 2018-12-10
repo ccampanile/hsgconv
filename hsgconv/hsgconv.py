@@ -7,8 +7,8 @@ version: 1.0.10
 Compatible with Python versions 2.7-3.x
 """
 
-__version__ = "1.0.9"
-
+__title__ = 'hsgconv'
+__version__ = '1.0.10'
 
 #import statements
 import sys
