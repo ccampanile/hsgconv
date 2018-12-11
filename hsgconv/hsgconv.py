@@ -30,12 +30,11 @@ else:
 def GridParams(gridID, mean_z):
     """
     Retrieve conversion params specific to a grid
-    Input:
-        gridID: string, refer to the list at http://www.standardsforhighways.co.uk/ha/standards/ians/pdfs/ian99.pdf
-        mean_z: float, mean altitude of the scheme's bounding box
-    Returns:
-        Conversion_parameters: tuple, ('gridID, PSF, ESF, CSF, 1/CSF, Eo, No')
-            
+
+    :param gridID: string, refer to the list at http://www.standardsforhighways.co.uk/ha/standards/ians/pdfs/ian99.pdf
+    :param mean_z: float, mean altitude of the scheme's bounding box
+
+    :returns: Conversion_parameters: tuple, `('gridID, PSF, ESF, CSF, 1/CSF, Eo, No')`
     """
     ESF = __CalculateESF(mean_z)
     (Es,Ns,Eo,No,PSF,bands) = __LocalParams(gridID)
@@ -44,11 +43,15 @@ def GridParams(gridID, mean_z):
 
 def CreateParamList(gridID, PSF, ESF, Eo, No):
     """
-    Create a custom parameters list
-    Input:
-        todo
-    Returns:
-        todo
+    Create a custom parameters list. **Be careful** of your inputs
+
+    :param gridID: string, refer to the list at http://www.standardsforhighways.co.uk/ha/standards/ians/pdfs/ian99.pdf
+    :param PSF: float - Projection Scale Factor
+    :param ESF: float - Elevation Scale Factor
+    :param Eo: float - delta Easting
+    :param No: float - delta Northing
+    
+    :returns: Custom parameters for coordinate conversion
     """
     CSF = PSF*ESF
     return (gridID, PSF, ESF, CSF, 1/CSF, float(Eo), float(No))
@@ -57,44 +60,54 @@ def CreateParamList(gridID, PSF, ESF, Eo, No):
 def ConvertToOSBG(myGridParam, x_coord, y_coord):
     """
     Convert local grid's (x,y) to OBSG's (easting, northing)
-    Input:
-        myGridParam: conversion parameter of local grid as ('gridID, PSF, ESF, CSF, 1/CSF, Eo, No')
-        x_coord: x coordinate in local grid
-        y_coord: y coordinate in local grid
-    Returns:
-        todo
+    
+    :param myGridParam: conversion parameter of local grid `('gridID, PSF, ESF, CSF, 1/CSF, Eo, No')`
+    :param x_coord: x coordinate in local grid
+    :param y_coord: y coordinate in local grid
+    
+    :returns: OSBG36's Easting and Northing
     """
     OSBG_coord = __ConvertLocalToOBSG(x_coord, y_coord, myGridParam[5], myGridParam[6], myGridParam[3])
-    
     return OSBG_coord
 
 
 def ConvertToLocalGrid(myGridParam, easting, northing):
     """
     Convert OSBG's (easting, northing) to local grid's (x,y)
-    Input:
-        myGridParam: conversion parameter of local grid as ('gridID, PSF, ESF, CSF, 1/CSF, Eo, No')
-        easting: easting in OSBG36
-        northing: northing in OSBG36
-    Returns:
-        todo
+    
+    :param myGridParam: conversion parameter of local grid as ('gridID, PSF, ESF, CSF, 1/CSF, Eo, No')
+    :param easting: easting in OSBG36
+    :param northing: northing in OSBG36
+    
+    :returns: HS local grid's X and Y coordinates
     """
     local_coord = __ConvertOSBGToLocal(easting, northing, myGridParam[5], myGridParam[6], myGridParam[4])
-    
     return local_coord
 
 
 #non-exposed functions
 
 def __GetBandsData():
-    #localpath
+    """
+    Get Local Grid's elevation parameter
+
+    :param _: todo
+    
+    :returns: todo
+    """
     this_dir, this_filename = os.path.split(__file__)
     DATA_PATH = os.path.join(this_dir, "data", "LocalGrid_DataBands.csv")
     return open(DATA_PATH)
 
 
 def __GetGridData():
-    #localpath
+    """
+    Get Local Grid's transformation parameters
+
+    :param _: todo
+    
+    :returns: todo
+    """
     this_dir, this_filename = os.path.split(__file__)
     DATA_PATH = os.path.join(this_dir, "data", "LocalGrid_DataParams.csv")
     return open(DATA_PATH)
@@ -103,16 +116,15 @@ def __GetGridData():
 def  __ConvertLocalToOBSG(e_local, n_local, Eo, No, CSF):
     """
     Convert local grid to OSBG coordinates
-    Input:
-        e_local: x coord in local grid
-        n_local: y coord in local grid
-        Eo: delta easting of local grid
-        No: delta northing of local grid
-        CSF: grid's associated scale factor
-    Returns:
-        todo
-    """
 
+    :param e_local: x coord in local grid
+    :param n_local: y coord in local grid
+    :param Eo: delta easting of local grid
+    :param No: delta northing of local grid
+    :param CSF: grid's associated scale factor
+    
+    :returns: todo
+    """
     #Easting national grid
     easting = e_local*CSF + Eo
     #Northing national grid
@@ -124,14 +136,14 @@ def  __ConvertLocalToOBSG(e_local, n_local, Eo, No, CSF):
 def  __ConvertOSBGToLocal(easting, northing, Eo, No, one_over_CSF):
     """
     Convert OSBG36 Easting-Northing to local grid coordinates
-    Inputs:
-        easting: easting in OSBG36
-        northing: northing in OSBG36
-        Eo: delta easting of local grid
-        No: delta northing of local grid
-        one_over_CSF: reciprocal CSF (combinated scale factor, = 1/CSF)
-    Returns:
-        todo
+
+    :param easting: easting in OSBG36
+    :param northing: northing in OSBG36
+    :param Eo: delta easting of local grid
+    :param No: delta northing of local grid
+    :param one_over_CSF: reciprocal CSF (combinated scale factor, = 1/CSF)
+
+    :returns: todo
     """
 
     #x-coord in local grid
@@ -145,10 +157,10 @@ def  __ConvertOSBGToLocal(easting, northing, Eo, No, one_over_CSF):
 def __CalculateESF(myElevation):
     """
     Retrieve the ElevationScaleFactor
-    Input:
-        todo
-    Returns:
-        todo
+
+    :param _: todo
+    
+    :returns: todo
     """
     #list out elevation and elevation scale factors
     elevation_list = [0,80,160,240,320,400,480,520,640,720,800]
@@ -166,10 +178,10 @@ def __CalculateESF(myElevation):
 def __LocalParams(localGrid):
     """
     Retrieve the parameters from the shared csv with files inside
-    Input:
-        todo
-    Returns:
-        todo
+    
+    :param _: todo
+    
+    :returns: todo
     """
     #check valuable input
     if  (localGrid == None):
