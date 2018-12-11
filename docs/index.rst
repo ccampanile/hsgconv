@@ -10,8 +10,10 @@ Welcome to hsgconv's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+
 .. automodule:: hsgconv
    :members: GridParams, CreateParamList, ConvertToOSBG, ConvertToLocalGrid
+
 
 Indices and tables
 ==================
