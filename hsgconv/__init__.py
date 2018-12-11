@@ -38,6 +38,8 @@ Released under the GNU GPL v3 license::
 
    Copyright (C) 2017-2018 Bryden Wood Technology
    Claudio Campanile <ccampanile@brydenwood.co.uk>
+
+
 """
 #    Copyright (C) 2017-2018 by
 #    Claudio Campanile <ccampanile<at>brydenwood.co.uk>
